@@ -736,7 +736,7 @@ void Endstops::update() {
     #define PROCESS_ENDSTOP_Z(MINMAX) PROCESS_DUAL_ENDSTOP(Z, MINMAX)
   #endif
 
-  #if ENABLED(G38_PROBE_TARGET) && PIN_EXISTS(Z_MIN_PROBE) && !(CORE_IS_XY || CORE_IS_XZ)
+  #if ENABLED(G38_PROBE_TARGET) && PIN_EXISTS(Z_MIN_PROBE)
     #if ENABLED(G38_PROBE_AWAY)
       #define _G38_OPEN_STATE (G38_move >= 4)
     #else
