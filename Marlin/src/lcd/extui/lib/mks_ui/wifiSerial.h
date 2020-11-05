@@ -72,14 +72,6 @@ class WifiSerial {
 	        /* If the buffer is full and the user defines USART_SAFE_INSERT,
 	         * ignore new bytes. */
 	        rb_safe_insert(this->usart_device->rb, (uint8)regs->DR);
-			/*if (rb_is_full(this->usart_device->rb)) {
-				uint8 clera_dr = regs->DR;
-			}
-			else {
-				this->usart_device->rb->tail = (this->usart_device->rb->tail == this->usart_device->rb->size) ? 0 : this->usart_device->rb->tail + 1;
-				this->usart_device->rb->buf[this->usart_device->rb->tail] = (uint8)regs->DR;
-			}*/
-			
 		#else
 	        /* By default, push bytes around in the ring buffer. */
 	        rb_push_insert(this->usart_device->rb, (uint8)regs->DR);
@@ -96,8 +88,9 @@ class WifiSerial {
 	
     int wifi_rb_is_full(void);
 	
-    private:
+    
     struct usart_dev *usart_device;
+    private:
     uint8 tx_pin;
     uint8 rx_pin;
 };

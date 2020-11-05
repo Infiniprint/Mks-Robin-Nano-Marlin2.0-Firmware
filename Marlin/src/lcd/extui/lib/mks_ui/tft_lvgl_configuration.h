@@ -33,7 +33,7 @@ extern "C" { /* C-declarations for C++ */
 #include <lvgl.h>
 
 //#define GRAPHICAL_TFT_ROTATE_180
-#define USE_WIFI_FUNCTION		0
+//#define USE_WIFI_FUNCTION		1
 
 extern void tft_lvgl_init();
 extern void my_disp_flush(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p);
@@ -59,6 +59,8 @@ extern lv_fs_res_t sd_close_cb (lv_fs_drv_t * drv, void * file_p);
 extern lv_fs_res_t sd_read_cb (lv_fs_drv_t * drv, void * file_p, void * buf, uint32_t btr, uint32_t * br);
 extern lv_fs_res_t sd_seek_cb(lv_fs_drv_t * drv, void * file_p, uint32_t pos);
 extern lv_fs_res_t sd_tell_cb(lv_fs_drv_t * drv, void * file_p, uint32_t * pos_p);
+
+extern void lv_fill_rect(lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2, lv_color_t bk_color);
 
 #ifdef __cplusplus
 } /* C-declarations for C++ */
